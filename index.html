@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorryy ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#111,#1f1f1f,#2d0b1f);
+overflow:hidden;
+color:white;
+height:100vh;
+}
+
+/* PAGES */
+
+.page{
+position:absolute;
+width:100%;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+text-align:center;
+transition:0.7s;
+overflow-y:auto;
+}
+
+.hidden{
+display:none;
+}
+
+/* TITLES */
+
+.main-title{
+font-size:3rem;
+font-weight:700;
+margin-bottom:20px;
+text-shadow:0 0 20px #ff4d88;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px #ff4d88;
+}
+to{
+text-shadow:0 0 30px #ff80ab;
+}
+}
+
+p{
+max-width:700px;
+font-size:1.1rem;
+line-height:1.8;
+margin-bottom:20px;
+}
+
+/* BUTTONS */
+
+button{
+padding:14px 30px;
+border:none;
+border-radius:50px;
+font-size:1rem;
+font-weight:600;
+cursor:pointer;
+margin:10px;
+transition:0.3s;
+}
+
+.open-btn{
+background:#ff4d88;
+color:white;
+box-shadow:0 0 20px #ff4d88;
+}
+
+.open-btn:hover{
+transform:scale(1.08);
+}
+
+.yes-btn{
+background:#00d26a;
+color:white;
+box-shadow:0 0 15px #00d26a;
+}
+
+.no-btn{
+background:#ff3b3b;
+color:white;
+position:relative;
+}
+
+/* MEMES */
+
+.memes{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:20px;
+}
+
+.memes img{
+width:180px;
+height:180px;
+object-fit:cover;
+border-radius:20px;
+border:3px solid white;
+transition:0.4s;
+box-shadow:0 0 15px rgba(255,255,255,0.2);
+}
+
+.memes img:hover{
+transform:scale(1.1) rotate(3deg);
+}
+
+/* HEARTS */
+
+.hearts{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-1;
+}
+
+.hearts span{
+position:absolute;
+bottom:-100px;
+font-size:25px;
+animation:float 8s linear infinite;
+opacity:0.8;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+/* FINAL */
+
+.final-text{
+font-family:'Pacifico',cursive;
+font-size:3.5rem;
+color:#ff80ab;
+text-shadow:0 0 20px #ff4d88;
+animation:pulse 1.5s infinite;
+margin-top:20px;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.08);
+}
+100%{
+transform:scale(1);
+}
+}
+
+/* TYPEWRITER */
+
+.typewriter{
+overflow:hidden;
+white-space:nowrap;
+border-right:3px solid white;
+width:0;
+animation:typing 4s steps(40,end) forwards,
+blink .8s infinite;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{
+border-color:transparent;
+}
+}
+
+/* SCROLL */
+
+::-webkit-scrollbar{
+width:0;
+}
+
+</style>
+</head>
+<body>
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" loop>
+
+<source src="music.mp3" type="audio/mp3">
+
+</audio>
+<!-- HEARTS -->
+
+<div class="hearts">
+
+<span style="left:10%;">❤️</span>
+<span style="left:20%; animation-delay:2s;">💖</span>
+<span style="left:30%; animation-delay:5s;">💕</span>
+<span style="left:40%; animation-delay:1s;">💗</span>
+<span style="left:50%; animation-delay:3s;">💘</span>
+<span style="left:60%; animation-delay:6s;">💞</span>
+<span style="left:70%; animation-delay:2s;">💓</span>
+<span style="left:80%; animation-delay:4s;">❤️</span>
+<span style="left:90%; animation-delay:7s;">💖</span>
+
+</div>
+
+<!-- PAGE 1 -->
+
+<div class="page" id="page1">
+
+<h1 class="main-title typewriter">
+Aapke Liye Ek Surprise Hai 👀
+</h1>
+
+<p>
+Please pura dekhna bachaaa 😭❤️ <br>
+Bahut effort lagaya hai...
+</p>
+
+<div class="memes">
+
+<img src="meme1.jpg">
+
+</div>
+
+<button class="open-btn"
+onclick="nextPage('page1','page2')">
+
+Jaldi Click Kro 😌
+
+</button>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="page hidden" id="page2">
+
+<h1 class="main-title">
+Maf Kar Do Na Bachaaa 😭
+</h1>
+
+<p>
+
+Mujhe pata hai maine stupid harkat ki 🥲 <br><br>
+
+Mera intention hurt karna nahi tha 😭❤️ <br><br>
+
+Please apka bacha hu na me 😭
+
+</p>
+
+<div class="memes">
+
+<img src="meme2.jpg">
+
+</div>
+
+<div>
+
+<button class="yes-btn"
+onclick="nextPage('page2','promisePage')">
+
+Maaf Kiya 😌❤️
+
+</button>
+
+<button class="no-btn"
+id="noBtn">
+
+Bilkul Nahi 😤
+
+</button>
+
+</div>
+
+</div>
+
+<!-- EMERGENCY PAGE -->
+
+<div class="page hidden" id="pageEmergency">
+
+<h1 class="main-title">
+WARNING ⚠️
+</h1>
+
+<p style="font-size:1.3rem;">
+
+Agar aap maaf nahi karogi to 😭 <br><br>
+
+Ek dukhi aadmi rota hua paya jayega 💔 <br><br>
+
+Usne 47 baar sorry type karke delete kiya hai 🥲
+
+</p>
+
+<div class="memes">
+
+<img src="meme5.jpg">
+
+</div>
+
+<button class="yes-btn"
+onclick="nextPage('pageEmergency','page2')">
+
+Acha Thik Hai Wapas 😭
+
+</button>
+
+</div>
+
+<!-- PROMISE PAGE -->
+
+<div class="page hidden"
+id="promisePage">
+
+<h1 class="main-title">
+Ab Nahi Hogi Galti 😭❤️
+</h1>
+
+<p>
+
+Promise karta hu patnii jiii🥺❤️ <br><br>
+
+Future me aisi harkate nahi karunga 😭 <br><br>
+
+Kabhi kabhi mera dimag airplane mode pe chala jata hai 🥲✈️ <br><br>
+
+Par apse bhut turruuu loveee krtaa mehh❤️
+
+</p>
+
+<div class="memes">
+
+<img src="meme6.jpg">
+
+</div>
+
+<button class="open-btn"
+onclick="openFinalPage()">
+
+maf kiya😭❤️
+
+</button>
+
+</div>
+
+<!-- FINAL PAGE -->
+
+<div class="page hidden"
+id="page3">
+
+<h1 class="main-title">
+YAYYYYY 😭❤️
+</h1>
+
+<p>
+
+System Successfully Maan Gaya 💋 <br><br>
+
+Angry Mode Disabled ✅ <br><br>
+
+Mood Cute Mode Me Convert Ho Gaya 😭❤️
+
+</p>
+
+<div class="memes">
+
+<img src="meme3.jpg">
+
+</div>
+
+<div class="final-text">
+Loveee Uuuhhhhh Biwii jiii 😘❤️
+Mawaaahhahahahha💋💋💋
+</div>
+
+<h2 style="margin-top:20px;">
+Ab Smile Aa Rahi Hai Na? 😭❤️
+</h2>
+
+<p style="margin-top:20px;">
+
+Thankuu So Much Maaf Karne Ke Liye 🥺❤️ <br><br>
+
+Promise 😭 <br>
+
+Future Me Ab Aisi Harkate Nahi Karunga bachaa ...
+
+Please give me 1 chance babyyyy
+
+</p>
+
+<button class="open-btn">
+
+Punishment dijiye na babyy 😭❤️
+
+</button>
+
+</div>
+
+<script>
+
+/* PAGE CHANGE */
+
+function nextPage(current,next){
+
+document.getElementById(current)
+.classList.add("hidden");
+
+document.getElementById(next)
+.classList.remove("hidden");
+
+}
+
+/* FINAL PAGE */
+
+function openFinalPage(){
+
+nextPage('promisePage','page3');
+
+confetti({
+particleCount:250,
+spread:140,
+origin:{y:0.6}
+});
+
+}
+
+/* NO BUTTON RUN */
+
+/* NO BUTTON RUN */
+
+const noBtn=document
+.getElementById("noBtn");
+
+if(window.innerWidth > 768){
+
+noBtn.addEventListener("mouseover",()=>{
+
+const x=Math.floor(Math.random()*200)-100;
+const y=Math.floor(Math.random()*200)-100;
+
+noBtn.style.transform=
+`translate(${x}px,${y}px)`;
+
+});
+
+}
+
+/* EMERGENCY PAGE */
+
+noBtn.addEventListener("click",()=>{
+
+nextPage('page2','pageEmergency');
+
+});
+
+/* FUNNY TITLES */
+
+const funnyTexts=[
+
+"Please Gussa Mat Ho 😭",
+"Mera Dil Tut Jayega 🥺",
+"Ek Chance Aur 😭❤️",
+"Tum Bina Sab Boring Hai 😔"
+
+];
+
+setInterval(()=>{
+
+document.title=
+funnyTexts[
+Math.floor(
+Math.random()*funnyTexts.length
+)
+];
+
+},2000);
+/* MUSIC PLAY FIX */
+
+document.body.addEventListener("click",()=>{
+
+const music=document.getElementById("bgMusic");
+
+music.play();
+
+},{ once:true });
+</script>
+
+</body>
+</html>
